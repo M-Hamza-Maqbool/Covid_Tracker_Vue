@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div class="container">
+  <div class="container w-screen">
   <router-view/>
     </div>
 
