@@ -2,6 +2,7 @@
   <main v-if="!loading">
     <DataTitle :text="Tilte" :dataDate="dataDate" />
     <DataBoxes  :stats = "stats"  />
+    <CountrySelect :countries= "countries" />
   </main>
   <main class="flex flex-col align-center justigy-center text-center" v-else>
           <div class="text-gray-500 text-3xl mt-10 mb-6" >
@@ -15,12 +16,14 @@
 // @ is an alias to /src
 import DataTitle from '@/components/DataTitle'
 import DataBoxes from '@/components/DataBoxes'
+import CountrySelect from '@/components/CountrySelect'
 
 export default {
   name: 'Home',
   components: {
          DataTitle,
-         DataBoxes
+         DataBoxes,
+         CountrySelect
   },
   data  () {
     return{
