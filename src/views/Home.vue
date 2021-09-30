@@ -2,7 +2,7 @@
   <main v-if="!loading">
     <DataTitle :text="Tilte" :dataDate="dataDate" />
     <DataBoxes  :stats = "stats"  />
-    <CountrySelect :countries= "countries" />
+    <CountrySelect  @get-country="getContryData" :countries= "countries" />
   </main>
   <main class="flex flex-col align-center justigy-center text-center" v-else>
           <div class="text-gray-500 text-3xl mt-10 mb-6" >
@@ -43,11 +43,14 @@ export default {
           const data=await  res.json()
           return data
       },
+      getContryData(Country){
+        this.stats=Country
+        this.Tilte=Country.Country
+      }
   },
        async created () {
        const data = await this.fatchCovidData();
 
-       console.log(data.Countries);
         this.dataDate=data.Date
         this.stats=data.Global
         this.countries=data.Countries

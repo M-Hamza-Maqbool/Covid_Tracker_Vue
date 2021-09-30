@@ -23,8 +23,8 @@ export default {
     methods:{
 
        onChange(){
-                 const data1=this.countries.find((items)   =>   items.ID === this.selected.value )
-                 console.log(data1)
+                 const country=this.countries.find((items)   =>   items.ID === this.selected )
+                  this.$emit('get-country' , country)                 
        }
 
 
